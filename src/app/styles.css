@@ -1,0 +1,215 @@
+/* Master Styles */
+h1 {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+.title{
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  float: left;
+}
+.title:hover{
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.topBar{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#D32F2F;
+  margin-top: 0px;
+  position: relative;
+}
+.item{
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  cursor:pointer;
+}
+.item:hover{
+  color:#fff;
+  background-color: rgba(151, 151, 151, 0.88);
+  cursor:pointer;
+}
+.itemsDesc{
+  font-family: Arial, Helvetica, sans-serif;
+  align-content: center;
+  display:inline-block;
+  width:100%;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+.navItem{
+  cursor:pointer;
+  color:#fff;
+}
+.navItem:hover{
+  cursor:pointer;
+  color:#fff;
+  background-color: rgba(161, 161, 161, 0.84);
+}
+nav{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.mainBottom{
+  margin-top: 5px;
+  float: left;
+  z-index: 2;
+  padding-top: 120px;
+  background-color: #fff;
+}
+.player{
+
+}
+input[type="text"]{
+  padding:5px 15px; border:2px black solid;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+input[type="text"]:hover{
+  padding:5px 15px; border:2px #2e2e2e solid;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.videoDesc{
+  font-family: Arial, Helvetica, sans-serif;
+  align-content: center;
+  display:inline-block;
+  width:100%;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+.pageNav{
+  cursor:pointer;
+}
+.footerBottom{
+  padding:10px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:#D32F2F;
+}
+.top{
+  position: fixed;
+  width: 100%;
+  float: left;
+  z-index: 3;
+}
+@media only screen and (max-width: 500px) {
+  .top{
+    position: relative;
+    width: 100%;
+  }
+  .mainBottom{
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    background-color: #fff;
+  }
+  .item{
+    margin-top: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    cursor:pointer;
+    max-height: 10%;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .top{
+    position: relative;
+    width: 100%;
+  }
+  .mainBottom{
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    background-color: #fff;
+  }
+  .item{
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    cursor:pointer;
+    max-height: 10%;
+  }
+  .itemImg{
+    display: none;
+  }
+}
+
+
+.resultWords{
+  float:left;
+  padding-left: 5px;
+}
+.resultNumber{
+  float:right;
+}
+.resultNumber:hover{
+  float:right;
+  background-color: rgba(151, 151, 151, 0.55);
+  cursor: pointer;
+}
+
+.pageNav{
+  float:left;
+}
+.titlewords:hover{
+  cursor: pointer;
+  float: left;
+}
+.footer-icon{
+  max-width: 30px;
+  float: right;
+  padding-right: 5px;
+}
+.navTag:hover{
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.tagBar{
+  padding:5px;
+}
+.horror{
+
+}
+.edmondLivePlayer{
+  padding-top: 5px;
+}
+.itemTitle{
+
+}
+.itemChannelName{
+
+}
+.youtube-loading{
+  background-image: url("icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.youtube-app{
+  align-content: center;
+}
+.loadingPage{
+  align-content: center;
+
+}
+.channelBtn{
+  float: right;
+  margin-top: 5px;
+}

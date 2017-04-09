@@ -1,0 +1,69 @@
+<div class="top">
+    <div class="topBar col-xs-12">
+        <span class="title"><h3 class="titlewords">{{title}}</h3></span>
+        <button class="btn btn-primary channelBtn" (click)="listChannel()" *ngIf="!channelList">Channel</button>
+        <button class="btn btn-success channelBtn" (click)="listVideo()" *ngIf="!videoList">Video</button>
+        <input type="text" class="input-control searchBar text form-control col-xs-12 col-sm-6" data-role="input" placeholder="Search" (ngModelChange)="search($event)" autofocus [(ngModel)]="searchInput" name="searchInput">
+
+
+        <nav class="col-xs-12 tagBar">
+            <span class="navTag">恐怖:</span>
+                <span class="navItem horror" (click)="search('雲海')">雲海</span>
+                <span class="navItem horror" (click)="search('摩星嶺4號')">摩星嶺4號</span>
+                <span class="navItem horror" (click)="search('靈異旅行團')">靈異旅行團</span>
+                <span class="navItem horror" (click)="search('黑色星期一')">黑色星期一</span>
+                <span class="navItem horror" (click)="search('極度深寒 jemdogdog -精華')">極度深寒</span>
+                <span class="navItem horror" (click)="search('越夜越心慌')">越夜越心慌</span>
+                <span class="navItem horror" (click)="search('恐怖熱線')">恐怖熱線</span>
+                <span class="navItem horror" (click)="live()">恐怖在線 Live</span>
+                <span class="navItem horror" (click)="live()">恐怖在線 Live</span>
+
+            <span class="navTag">IT:</span>
+            <span class="navItem horror" (click)="search('亂gad')">亂gad</span>
+            <span class="navItem horror" (click)="search('HKPUG')">HKPUG</span>
+        </nav>
+    </div>
+</div>
+
+<base href="/src/app/">
+<div class="col-xs-12 mainBottom">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 player">
+        <div *ngIf="edmonpoonlive" class="edmondLivePlayer">
+            <div>Now Playing: 恐怖在線</div>
+            <audio *ngIf="edmonpoonlive" controls>
+                <source src="http://alive.dimbo.tv:7000/;stream.nsv&type=mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <iframe id="ytplayer" class="col-xs-12 col-sm-12 col-md-12" max-width="560" max-height="315" frameborder="0" allowfullscreen [src]="videoId"></iframe>
+        <div class="videoDesc">Now Playing: {{videoDesc}}</div>
+        <div>
+            <span class="pageNav">
+                <span *ngIf="perviousPage" (click)="page(perviousPage)" ><img width="30px" class="pageNav" [src]="img.left"></span><span *ngIf="nextPage" (click)="page(nextPage)"><img class="pageNav" width="30px" src="right-arrow.png"></span>
+            </span>
+            <span class="resultWords">Results of {{keyWords}}</span>
+            <span class="resultNumber">Total result: {{pageInfo}}</span>
+        </div>
+    </div>
+
+    <div *ngFor="let item of items" class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="item itemsDesc" (click)="playVid(item.id.videoId,item.snippet.title,1)">
+            <span><img class="img img-thumbnail itemImg hide-mobile" src="{{item.snippet.thumbnails.default.url}}" width="{{item.snippet.thumbnails.default.width}}" alt="{{item.snippet.title}}-default"></span>
+            <span>
+                <span class="itemTitle">{{item.snippet.title}}</span>
+                <span class="itemChannelName"> by {{item.snippet.channelTitle}}</span>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12 footerBottom footer">
+    <div>
+        <span class="pageNav">
+            <span *ngIf="perviousPage" (click)="page(perviousPage)" ><img width="30px" class="pageNav" src="left-arrow.png"></span><span *ngIf="nextPage" (click)="page(nextPage)"><img class="pageNav" width="30px" src="right-arrow.png"></span>
+        </span>
+        <span class="resultWords">Results of {{keyWords}}</span>
+        <span class="resultNumber">Total result: {{pageInfo}}</span>
+        <span> <img src="icon.png" class="footer-icon"> </span>
+    </div>
+</div>
