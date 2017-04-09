@@ -53,7 +53,7 @@ export class AppComponent {
     }
   }
 
-  private live(){
+  public live(){
     this.edmonpoonlive=true;
     this.videoDesc='恐怖在線 Live';
   }
