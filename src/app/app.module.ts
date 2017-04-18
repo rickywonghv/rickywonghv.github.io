@@ -6,6 +6,7 @@ import { HttpModule,JsonpModule } from '@angular/http';
 import {AppService} from './app.service';
 
 import { AppComponent } from './app.component';
+
 //import {BROWSER_SANITIZATION_PROVIDERS} from "@angular/platform-browser/src/browser";
 
 @NgModule({

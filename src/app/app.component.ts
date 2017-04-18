@@ -2,6 +2,7 @@ import { Component,enableProdMode } from '@angular/core';
 import {AppService } from'./app.service'
 import {DomSanitizer , SafeResourceUrl} from "@angular/platform-browser";
 
+
 enableProdMode();
 
 @Component({
@@ -25,6 +26,11 @@ export class AppComponent {
   channelList=false;
   videoList=true;
   img:Object;
+  youtubeShow=true;
+  rssProgramTitle;
+  rsslist;
+  playUrl;
+  rssPlayer=false;
 
   constructor(public appservice:AppService,private sanitizer: DomSanitizer ){
     //this.search("wan hoi");
@@ -47,10 +53,18 @@ export class AppComponent {
     if(this.videoId&&this.videoDesc,this.searchInput){
       this.playVid(this.videoId,this.videoDesc,0);
       this.search(this.searchInput);
-    }else{
+    }else {
       this.search("wan hoi");
-      this.playVid("QMQbAoTLJX8","Initial Video",0);
+      this.playVid("QMQbAoTLJX8", "Initial Video", 0);
     }
+  }
+
+  public listyoutube(){
+    this.youtubeShow=true;
+  }
+
+  public rss(program){
+    this.appservice.rssfeed(program).subscribe(res=>this.listRssExe(res.json()));
   }
 
   public live(){
@@ -64,9 +78,20 @@ export class AppComponent {
     this.searchInput=key;
     this.appservice.getSearch(key).subscribe(res=>this.listExe(res.json()));
   }
+
   public page(pageTk:string){
     this.keyWords=localStorage.getItem("keyWords");
     this.appservice.page(pageTk,this.keyWords).subscribe(res=>this.listExe(res.json()));
+  }
+
+  public listRssPage(code:string){
+    this.rss(code);
+    this.youtubeShow=false;
+    if(code=="digi"){
+      this.rssProgramTitle="數碼生活頻道";
+    }else {
+      this.rssProgramTitle = "無奇不有";
+    }
   }
 
   private listExe(result:any){
@@ -79,6 +104,15 @@ export class AppComponent {
       this.perviousPage=result.prevPageToken;
     }
     this.pageInfo=result.pageInfo.totalResults;
+  }
+
+  private listRssExe(json:any){
+    this.rsslist=json.data;
+  }
+
+  public playrss(item:any){
+    this.playUrl=item.enclosure.url;
+    this.rssPlayer=true;
   }
 
   public playVid(Id,title,autoPlay){

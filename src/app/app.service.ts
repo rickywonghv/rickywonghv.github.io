@@ -18,6 +18,7 @@ export class AppService {
   private searchType="video";
   private apikey="AIzaSyAARhzDEdAwaIYKelgTmVa8Nez5sLKjBcM";
   private regionCode="HK";
+  private aws="https://m071xknb9b.execute-api.ap-northeast-1.amazonaws.com/prod/rss";
 
   public getSearch (key){
     return this.http.get(this.url+"&maxResults=20&safeSearch=moderate&type="+this.searchType+"&key="+this.apikey+"&q="+key+"%7C"+"&regionCode="+this.regionCode);
@@ -32,4 +33,11 @@ export class AppService {
     let pageUrl=this.url+"&key="+this.apikey+"&maxResults=20&safeSearch=moderate&type=channel&&q=EdmondPoon%7C"+"&regionCode="+this.regionCode;
     return this.http.get(pageUrl);
   }
+
+  public rssfeed(program){
+    //mystery,digi
+    let url=this.aws+"?format=json&code="+program;
+    return this.http.get(url);
+  }
+
 }
